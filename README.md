@@ -91,7 +91,7 @@ Depois altere para o IP real do servidor:
 
 ```javascript
 cfg = rs.conf()
-cfg.members[0].host = "186.233.16.6:27017"
+cfg.members[0].host = "172.16.0.75:27017"
 rs.reconfig(cfg, { force: true })
 ```
 
@@ -112,7 +112,7 @@ mongosh
 use admin
 db.createUser({
   user: "admin",
-  pwd: "Key(@n@)",
+  pwd: "Key(mudar)",
   roles: [ { role: "root", db: "admin" } ]
 })
 ```
@@ -127,7 +127,7 @@ sudo systemctl restart mongod
 ## 🔐 6. Testar login seguro
 
 ```bash
-mongosh -u admin -p 'Key(@n@)' --authenticationDatabase admin
+mongosh -u admin -p 'Key(mudar)' --authenticationDatabase admin
 ```
 
 ---
@@ -178,7 +178,7 @@ sudo systemctl restart mongod
 ## 🔐 9. Testar login seguro
 
 ```bash
-mongosh -u admin -p 'Key(@n@)' --authenticationDatabase admin
+mongosh -u admin -p 'Key(mudar)' --authenticationDatabase admin
 ```
 
 ---
@@ -186,7 +186,7 @@ mongosh -u admin -p 'Key(@n@)' --authenticationDatabase admin
 ## 🧪 11. Testar a conexão do Omada ao Mongo
 
 ```bash
-mongosh "mongodb://omada:0m4d4@186.233.16.6:27017/omada?replicaSet=rs0&authSource=admin"
+mongosh "mongodb://omada:0m4d4@172.16.0.75:27017/omada?replicaSet=rs0&authSource=admin"
 ```
 
 ---
@@ -268,12 +268,12 @@ Finalize a configuração inicial no navegador.
 
 ### Manual (MongoDB)
 ```bash
-mongodump --uri "mongodb://admin:Key(@n@)@127.0.0.1:27017/?authSource=admin&replicaSet=rs0"   --out /mnt/md2/backups/mongo-$(date +%Y%m%d)
+mongodump --uri "mongodb://admin:Key(mudar)@127.0.0.1:27017/?authSource=admin&replicaSet=rs0"   --out /mnt/md2/backups/mongo-$(date +%Y%m%d)
 ```
 
 Restaurar:
 ```bash
-mongorestore --uri "mongodb://admin:Key(@n@)@127.0.0.1:27017/?authSource=admin&replicaSet=rs0"   --drop /mnt/md2/backups/mongo-20251031
+mongorestore --uri "mongodb://admin:Key(mudar)@127.0.0.1:27017/?authSource=admin&replicaSet=rs0"   --drop /mnt/md2/backups/mongo-20251031
 ```
 
 ---
