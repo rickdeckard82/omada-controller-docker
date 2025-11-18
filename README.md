@@ -138,7 +138,7 @@ mongosh -u admin -p 'Key(mudar)' --authenticationDatabase admin
 use admin
 db.createUser({
   user: "omada",
-  pwd: "0m4d4",
+  pwd: "Key(mudar)",
   roles: [
     { role: "readWrite", db: "omada" },
     { role: "dbAdmin", db: "omada" },
@@ -186,7 +186,7 @@ mongosh -u admin -p 'Key(mudar)' --authenticationDatabase admin
 ## 🧪 11. Testar a conexão do Omada ao Mongo
 
 ```bash
-mongosh "mongodb://omada:0m4d4@172.16.0.75:27017/omada?replicaSet=rs0&authSource=admin"
+mongosh "mongodb://omada:Key(mudar)@172.16.0.75:27017/omada?replicaSet=rs0&authSource=admin"
 ```
 
 ---
@@ -217,7 +217,7 @@ services:
         hard: 8192
     environment:
       MONGO_EXTERNAL: "true"
-      EAP_MONGOD_URI: "mongodb://omada:0m4d4@186.233.16.6:27017/omada?replicaSet=rs0&authSource=admin"
+      EAP_MONGOD_URI: "mongodb://omada:Key(mudar)@186.233.16.6:27017/omada?replicaSet=rs0&authSource=admin"
       AUTOBACKUP_PATH: /opt/tplink/EAPController/data/autobackup
       AUTOBACKUP_CRON: 0 3 * * *
       AUTOBACKUP_RETENTION: 14
