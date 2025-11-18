@@ -116,6 +116,18 @@ db.createUser({
   roles: [ { role: "root", db: "admin" } ]
 })
 ```
+---
+
+## ⚙️  6. Descomentar segurança
+
+Arquivo `/etc/mongod.conf`:
+
+```yaml
+
+security:
+  keyFile: /etc/mongod.key
+  authorization: enabled
+```
 
 Reinicie:
 ```bash
@@ -124,7 +136,7 @@ sudo systemctl restart mongod
 
 ---
 
-## 🔐 6. Testar login seguro
+## 🔐 7. Testar login seguro
 
 ```bash
 mongosh -u admin -p 'Key(mudar)' --authenticationDatabase admin
@@ -132,7 +144,7 @@ mongosh -u admin -p 'Key(mudar)' --authenticationDatabase admin
 
 ---
 
-## 👥 7. Criar usuário do Omada
+## 👥 8. Criar usuário do Omada
 
 ```javascript
 use admin
@@ -154,25 +166,6 @@ Verifique:
 ```javascript
 db.getUser("omada")
 ```
-
----
-
-## ⚙️  8. Descomentar segurança
-
-Arquivo `/etc/mongod.conf`:
-
-```yaml
-
-security:
-  keyFile: /etc/mongod.key
-  authorization: enabled
-```
-
-Reinicie:
-```bash
-sudo systemctl restart mongod
-```
-
 ---
 
 ## 🔐 9. Testar login seguro
@@ -183,7 +176,7 @@ mongosh -u admin -p 'Key(mudar)' --authenticationDatabase admin
 
 ---
 
-## 🧪 11. Testar a conexão do Omada ao Mongo
+## 🧪 10. Testar a conexão do Omada ao Mongo
 
 ```bash
 mongosh "mongodb://omada:Key(mudar)@172.16.0.75:27017/omada?replicaSet=rs0&authSource=admin"
@@ -191,7 +184,7 @@ mongosh "mongodb://omada:Key(mudar)@172.16.0.75:27017/omada?replicaSet=rs0&authS
 
 ---
 
-## 📁 12. Estrutura de diretórios
+## 📁 11. Estrutura de diretórios
 
 ```bash
 mkdir -p /app/omada/{data,logs,autobackup}
@@ -200,7 +193,7 @@ chmod -R 777 /app/omada
 
 ---
 
-## 🐳 13. Criar o container Omada Controller
+## 🐳 12. Criar o container Omada Controller
 
 Arquivo: `/app/omada/docker-compose.yml`
 
@@ -249,7 +242,7 @@ INFO: Autobackup scheduled at 03:00 every day
 
 ---
 
-## 🌐 14. Acessar o painel Omada
+## 🌐 13. Acessar o painel Omada
 
 ```
 https://<IP_DO_SERVIDOR>:8043
@@ -259,7 +252,7 @@ Finalize a configuração inicial no navegador.
 
 ---
 
-## 💾 15. Backups
+## 💾 14. Backups
 
 ### Automático
 - Caminho: `/app/omada/autobackup`
@@ -278,7 +271,7 @@ mongorestore --uri "mongodb://admin:Key(mudar)@127.0.0.1:27017/?authSource=admin
 
 ---
 
-## 🔁 16. Reinstalação futura
+## 🔁 15. Reinstalação futura
 
 1. Reinstale o MongoDB (passos 1–6).  
 2. Copie `/etc/mongod.key`.  
