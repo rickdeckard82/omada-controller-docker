@@ -1,4 +1,4 @@
-# 🧩 GUIA DEFINITIVO — Omada Controller + MongoDB Externo Seguro (Ubuntu 22.04)
+# 🧩 Omada Controller + MongoDB Externo Seguro (Ubuntu 22.04)
 
 ---
 
