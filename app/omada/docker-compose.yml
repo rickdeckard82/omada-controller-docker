@@ -1,0 +1,21 @@
+services:
+  omada-controller:
+    image: mbentley/omada-controller:6.0
+    container_name: omada-controller
+    restart: unless-stopped
+    network_mode: host     # <<< ESSENCIAL
+    ulimits:
+      nofile:
+        soft: 4096
+        hard: 8192
+    environment:
+      MONGO_EXTERNAL: "true"
+      EAP_MONGOD_URI: "mongodb://omada:Key(mudar)@186.233.16.6:27017/omada?replicaSet=rs0&authSource=admin"
+      AUTOBACKUP_PATH: /opt/tplink/EAPController/data/autobackup
+      AUTOBACKUP_CRON: 0 3 * * *
+      AUTOBACKUP_RETENTION: 14
+      TZ: America/Sao_Paulo
+    volumes:
+      - /app/omada/data:/opt/tplink/EAPController/data
+      - /app/omada/logs:/opt/tplink/EAPController/logs
+      - /app/omada/autobackup:/opt/tplink/EAPController/data/autobackup
