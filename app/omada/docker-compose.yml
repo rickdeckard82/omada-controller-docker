@@ -10,7 +10,7 @@ services:
         hard: 8192
     environment:
       MONGO_EXTERNAL: "true"
-      EAP_MONGOD_URI: "mongodb://omada:Key(mudar)@186.233.16.6:27017/omada?replicaSet=rs0&authSource=admin"
+      EAP_MONGOD_URI: "mongodb://omada:Key(mudar)@IP DO SERVIDOR:27017/omada?replicaSet=rs0&authSource=admin"
       AUTOBACKUP_PATH: /opt/tplink/EAPController/data/autobackup
       AUTOBACKUP_CRON: 0 3 * * *
       AUTOBACKUP_RETENTION: 14
